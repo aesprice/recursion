@@ -3,5 +3,12 @@
 
 // but you don't so you're going to write it from scratch:
 var stringifyJSON = function(obj) {
-  // your code goes here
+	// Just return values of basic variables
+	if(obj == null){
+		return String(obj);
+	}else if(typeof(obj) === "string"){
+		return '"' + obj + '"'
+	}else if(typeof(obj) != "object"){
+		return obj.toString()
+	}
 };
