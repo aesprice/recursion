@@ -17,7 +17,13 @@ var getElementsByClassName = function(className){
 	findChildren = function(node){
 		_.each(node.childNodes, function(item){
 			// Add matching children to the list
-			if(item.className === className){
+			var match = false;
+			if(item.className){
+				// Create an array of classnames (in case the node has more than one class)
+				var classes = item.className.split(" ");
+				match = _.contains(classes, className);
+			}
+			if(match){
 				elementList.push(item);
 			}
 
